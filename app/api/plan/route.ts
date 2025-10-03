@@ -38,7 +38,7 @@ export async function POST(req: Request) {
 
   // 3) 学習タスク
   const taskKeys = pickTasks(body.nihongo);
-  const { data: tasks } = await supabaseAdmin.from('learning_tasks').select('*').in('key', taskKeys).limit(3) as any;
+  const { data: tasks } = await supabaseAdmin.from('learning_tasks').select('*').in('key', taskKeys).limit(3);
 
   // 4) 生活ガイド
   let guide: Guide | null = null;
