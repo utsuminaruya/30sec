@@ -37,13 +37,40 @@ export default function DiagnosePage() {
     <div>
       <h1 style={{fontSize:20, fontWeight:700, marginBottom:12}}>{i18n.title}</h1>
 
-      <StepButtons label={i18n.steps.purpose}  options={i18n.options.purpose}  value={ans.purpose}  onSelect={k=>setAns({...ans, purpose: k as any})}/>
-      <StepButtons label={i18n.steps.residency} options={i18n.options.residency} value={ans.residency} onSelect={k=>setAns({...ans, residency: k as any})}/>
-      <StepButtons label={i18n.steps.prefecture} options={i18n.options.prefecture} value={ans.prefecture} onSelect={k=>setAns({...ans, prefecture: k as any})}/>
-      <StepButtons label={i18n.steps.nihongo} options={i18n.options.nihongo} value={ans.nihongo} onSelect={k=>setAns({...ans, nihongo: k as any})}/>
-      <StepButtons label={i18n.steps.care_exp} options={i18n.options.care_exp} value={String(ans.care_exp)} onSelect={k=>setAns({...ans, care_exp: k==='true'})}/>
-      <StepButtons label={i18n.steps.housing} options={i18n.options.housing} value={ans.housing} onSelect={k=>setAns({...ans, housing: k as any})}/>
+      <StepButtons
+  label={i18n.steps.purpose}
+  options={i18n.options.purpose}
+  value={ans.purpose}
+  onSelect={(k) => setAns({ ...ans, purpose: k as Answers['purpose'] })}
+/>
 
+<StepButtons
+  label={i18n.steps.residency}
+  options={i18n.options.residency}
+  value={ans.residency}
+  onSelect={(k) => setAns({ ...ans, residency: k as Answers['residency'] })}
+/>
+
+<StepButtons
+  label={i18n.steps.prefecture}
+  options={i18n.options.prefecture}
+  value={ans.prefecture}
+  onSelect={(k) => setAns({ ...ans, prefecture: k as Answers['prefecture'] })}
+/>
+
+<StepButtons
+  label={i18n.steps.nihongo}
+  options={i18n.options.nihongo}
+  value={ans.nihongo}
+  onSelect={(k) => setAns({ ...ans, nihongo: k as Answers['nihongo'] })}
+/>
+
+<StepButtons
+  label={i18n.steps.housing}
+  options={i18n.options.housing}
+  value={ans.housing}
+  onSelect={(k) => setAns({ ...ans, housing: k as Answers['housing'] })}
+/>
       <button onClick={submit} style={btnStyle} disabled={loading}>
         {loading ? 'Loading...' : i18n.steps.submit}
       </button>
